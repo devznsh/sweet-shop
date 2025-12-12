@@ -66,6 +66,7 @@ Sweet Shop is a modern e-commerce platform for managing and purchasing sweet tre
 - ✅ TDD approach with comprehensive test coverage
 - ✅ Role-based access control (USER/ADMIN)
 - ✅ Protected routes and authentication middleware
+- ✅ Rate limiting to prevent abuse (auth, purchase, and API endpoints)
 - ✅ Input validation and error handling
 - ✅ Responsive design (mobile-first)
 - ✅ Toast notifications for user feedback

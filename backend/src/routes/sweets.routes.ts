@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { sweetsController } from '../controllers/sweets.controller';
 import { auth } from '../middleware/auth';
 import { adminOnly } from '../middleware/adminOnly';
+import { purchaseLimiter } from '../middleware/rateLimiter';
 
 const router = Router();
 
@@ -13,8 +14,8 @@ router.get('/', (req, res, next) => sweetsController.getAllSweets(req, res, next
 router.get('/search', (req, res, next) => sweetsController.searchSweets(req, res, next));
 router.get('/:id', (req, res, next) => sweetsController.getSweetById(req, res, next));
 
-// Purchase route (authenticated users)
-router.post('/:id/purchase', (req, res, next) => sweetsController.purchaseSweet(req, res, next));
+// Purchase route (authenticated users) - with rate limiting
+router.post('/:id/purchase', purchaseLimiter, (req, res, next) => sweetsController.purchaseSweet(req, res, next));
 
 // Admin only routes
 router.post('/', adminOnly, (req, res, next) => sweetsController.createSweet(req, res, next));
