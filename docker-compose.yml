@@ -3,6 +3,8 @@ services:
   postgres:
     image: postgres:15-alpine
     environment:
+      # NOTE: These credentials are for development only
+      # In production, use Docker secrets or environment variables
       POSTGRES_USER: sweetshop
       POSTGRES_PASSWORD: sweetshop123
       POSTGRES_DB: sweetshop
@@ -17,6 +19,8 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://sweetshop:sweetshop123@postgres:5432/sweetshop
+      # NOTE: This JWT secret is for development only
+      # In production, use a strong secret from environment variables
       JWT_SECRET: your-super-secret-jwt-key
       NODE_ENV: development
     depends_on:

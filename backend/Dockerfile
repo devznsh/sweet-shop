@@ -22,4 +22,6 @@ RUN npm run build
 EXPOSE 3000
 
 # Start command
+# NOTE: For production, run migrations using a separate init container or migration job
+# to avoid race conditions in multi-instance deployments
 CMD ["sh", "-c", "npx prisma migrate deploy && npm start"]

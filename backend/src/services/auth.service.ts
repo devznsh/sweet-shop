@@ -32,8 +32,7 @@ export class AuthService {
       role: user.role
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...userWithoutPassword } = user;
+    const { password: _, ...userWithoutPassword } = user;
 
     return {
       token,
@@ -62,8 +61,7 @@ export class AuthService {
       role: user.role
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...userWithoutPassword } = user;
+    const { password: _, ...userWithoutPassword } = user;
 
     return {
       token,

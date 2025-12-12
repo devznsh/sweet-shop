@@ -62,8 +62,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     // Check if user is already logged in
     const checkAuth = () => {
       const token = tokenUtils.getToken();
-      // Note: In production, you should verify the token with the backend
-      // and decode it to get user information
+      // TODO: In production, verify the token with the backend by calling a /me endpoint
+      // For now, we rely on the 401 interceptor to handle invalid tokens
       dispatch({ type: 'SET_LOADING', payload: false });
     };
 
