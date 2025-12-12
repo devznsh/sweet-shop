@@ -62,13 +62,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     // Check if user is already logged in
     const checkAuth = () => {
       const token = tokenUtils.getToken();
-      if (token) {
-        // In a real app, you'd verify the token with the backend
-        // For now, we'll just set loading to false
-        dispatch({ type: 'SET_LOADING', payload: false });
-      } else {
-        dispatch({ type: 'SET_LOADING', payload: false });
-      }
+      // Note: In production, you should verify the token with the backend
+      // and decode it to get user information
+      dispatch({ type: 'SET_LOADING', payload: false });
     };
 
     checkAuth();
